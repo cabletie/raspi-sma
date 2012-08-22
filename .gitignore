@@ -1,3 +1,6 @@
 # My own ignore file
 *.[oa]
-
+.hgignore
+.hgtags
+.hg
+smatool
