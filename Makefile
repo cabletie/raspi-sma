@@ -36,5 +36,7 @@ sqlite_test : $(SQLITE_OBJ) $(TEST_OBJ)
 	$(CC) $(CFLAGS) -o $(TEST) $(SQLITE_OBJ) $(TEST_OBJ) $(LIBS) $(SQLITE_LIB)
 
 $(phony install): sqlite
-	install --mode=666 smatool $(PREFIX)/bin
+	install --mode=555 smatool $(PREFIX)/bin
 	install --mode=664 smatool.conf $(PREFIX)/etc
+	install --mode=444 sma.in.new $(PREFIX)/lib
+	install --mode=444 smatool.cron /etc/cron.d/smatool.cron

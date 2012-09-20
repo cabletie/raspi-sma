@@ -3,7 +3,7 @@
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/home/smatool/bin
 
-# The following line runs the smatool every half hour between 0500 and 2000 and logs all output to the /var/log/smatool.log file.
-# REMEMBER TO REPLACE THE TEXT "your-user-name" with your actual Ubuntu username!
-*/5 5-22 * * *  peter	cd /home/peter/bin/sma-bluetooth; ./smatool 2>&1 | logger -t smatool -p local5.info
+# The following line runs the smatool every half hour between 0500 and 2200 and logs all output to the /var/log/smatool.log file.
+# REMEMBER TO REPLACE THE TEXT "your-user-name" with your actual Ubuntu username! and uncomment the following line to activate
+*/5 5-22 * * *  your-user-name	cd /usr/local/bin/smatool 2>&1 | logger -t smatool -p local5.info
 
