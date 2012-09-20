@@ -207,13 +207,13 @@ void add_escapes(unsigned char *cp, int *len)
  */
 void fix_length_send(unsigned char *cp, int *len)
 {
-    int	    delta=0;
+    //int	    delta=0;
 
     if( debug == 1 ) 
        printf( "sum=%x\n", cp[1]+cp[3] );
     if(( cp[1] != (*len)+1 ))
     {
-      delta = (*len)+1 - cp[1];
+      //delta = (*len)+1 - cp[1];
       if( debug == 1 ) {
           printf( "  length change from %x to %x diff=%x \n", cp[1],(*len)+1,cp[1]+cp[3] );
       }
@@ -259,14 +259,14 @@ void fix_length_send(unsigned char *cp, int *len)
  */
 void fix_length_received(unsigned char *received, int *len)
 {
-    int	    delta=0;
+    //int	    delta=0;
     int	    sum;
 
     if( received[1] != (*len) )
     {
       sum = received[1]+received[3];
       if (debug == 1) printf( "sum=%x", sum );
-      delta = (*len) - received[1];
+      //delta = (*len) - received[1];
       if (debug == 1) printf( "length change from %x to %x\n", received[1], (*len) );
       if(( received[3] != 0x13 )&&( received[3] != 0x14 )) { 
         received[1] = (*len);
@@ -791,7 +791,7 @@ int auto_set_dates( int * daterange, int mysql, char * datefrom, char * dateto )
 /*  If there are no dates set - get last updated date and go from there to NOW */
 {
     time_t  	curtime;
-    int 	day,month,year,hour,minute,second;
+    //int 	day,month,year,hour,minute,second;
     struct tm 	loctime;
     curtime = time(NULL);  //get time in seconds since epoch (1/1/1970)	
     loctime = *(localtime(&curtime));
@@ -1108,7 +1108,7 @@ ReadStream( ConfType * conf, int * s, unsigned char * stream, int * streamlen, u
 /* Init Config to default values */
 void InitConfig( ConfType *conf, char * datefrom, char * dateto )
 {
-    strcpy( conf->Config,"./smatool.conf");
+    strcpy( conf->Config,"PREFIX/smatool.conf");
     strcpy( conf->Inverter, "" );  
     strcpy( conf->BTAddress, "" );  
     conf->bt_timeout = 5;  

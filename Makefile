@@ -1,6 +1,7 @@
 RM = rm
 CC = gcc
-CFLAGS = -g -Wall
+PREFIX?=/usr/local
+CFLAGS = -g -Wall -D PREFIX=$(PREFIX)
 LIBS = -lbluetooth -lcurl -lm
 
 MAIN = smatool
@@ -33,3 +34,7 @@ test : $(MYSQL_OBJ) $(TEST_OBJ)
 
 sqlite_test : $(SQLITE_OBJ) $(TEST_OBJ)
 	$(CC) $(CFLAGS) -o $(TEST) $(SQLITE_OBJ) $(TEST_OBJ) $(LIBS) $(SQLITE_LIB)
+
+$(phony install): sqlite
+	install --mode=666 smatool $(PREFIX)/bin
+	install --mode=664 smatool.conf $(PREFIX)/etc
