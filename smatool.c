@@ -1108,12 +1108,12 @@ ReadStream( ConfType * conf, int * s, unsigned char * stream, int * streamlen, u
 /* Init Config to default values */
 void InitConfig( ConfType *conf, char * datefrom, char * dateto )
 {
-    strcpy( conf->Config,"PREFIX/smatool.conf");
+    strcpy( conf->Config,"/usr/local/etc/smatool.conf");
     strcpy( conf->Inverter, "" );  
     strcpy( conf->BTAddress, "" );  
     conf->bt_timeout = 5;  
     strcpy( conf->Password, "0000" );  
-    strcpy( conf->File, "sma.in.new" );  
+    strcpy( conf->File, "/usr/local/lib/sma.in.new" );  
     conf->latitude_f = 999 ;  
     conf->longitude_f = 999 ;  
     strcpy( conf->MySqlHost, "localhost" );  
