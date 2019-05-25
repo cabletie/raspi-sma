@@ -41,4 +41,4 @@ install: sqlite
 	install --mode=555 smatool /usr/local/bin
 	install --mode=664 smatool.conf /usr/local/etc
 	install --mode=444 sma.in.new /usr/local/lib
-	install --mode=444 smatool.cron /etc/cron.d/smatool.cron
+	install --mode=444 smatool.cron /etc/cron.d/smatool
